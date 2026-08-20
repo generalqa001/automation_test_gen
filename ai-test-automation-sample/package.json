@@ -1,0 +1,27 @@
+{
+  "name": "ai-test-automation-sample",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "app": "tsx src/server.ts",
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:auth": "playwright test --grep @auth",
+    "test:products": "playwright test --grep @products",
+    "test:ai": "playwright test --grep @ai",
+    "test:p0": "playwright test --grep @p0",
+    "test:p1": "playwright test --grep @p1",
+    "test:p2": "playwright test --grep @p2",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
