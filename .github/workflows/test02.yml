@@ -11,7 +11,7 @@ jobs:
   say-hello-action:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/greeting-workflow@d8e2f77a33b1833fa8220dd19cbb11009ad81e86
+      - uses: actions/hello-world-javascript-action@d8e2f77a33b1833fa8220dd19cbb11009ad81e86
         with:
           who-to-greet : "Azaz"
           
