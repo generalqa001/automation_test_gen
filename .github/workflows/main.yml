@@ -11,12 +11,18 @@ jobs:
           runs-on : ubuntu-24.04
           needs:
             - greeting-inline-bash
+          steps:
+          - run: echo "running job-2 dep on job 1" 
     job-3: 
           runs-on: windows-2025
           needs: 
           - greeting-inline-bash
           - job-2
+          steps:
+          - run: echo "running job 3 dep on job 1 and 2" 
     job-4: 
         runs-on: macos-13
         needs:
         - job-2
+        steps:
+          - run: echo "job-4 dep on job-2 only" 
