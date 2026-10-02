@@ -1,0 +1,25 @@
+name: Save Artifacts Workflow
+on: 
+    workflow_dispatch:
+jobs: 
+  artifact-producer :
+      name : Test artifact Upload 
+      runs-on: ubuntu-latest 
+      steps:
+        - run: echo "Uploading sample Artifact! /n Generated on $(date)">> artifact.txt 
+        - run: echo $PATH 
+        - uses : actions/upload-artifact@v4
+          with:
+            name: Test-artifact
+            path: artifact.txt
+  artifact-consumer: 
+      name : Consume Artifact
+      runs-on : ubuntu-24.04
+      needs: artifact-producer
+      steps:
+          - run: echo "running artifact-consumer dep on artifact-producer" 
+          - uses : actions/download-artifact@v4
+            with:
+              name: Test-artifact
+          - name: Cat artifact file 
+            run: cat artifact.txt
